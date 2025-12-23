@@ -85,10 +85,10 @@ function ChatWindow() {
         {
           isOpen && <div className="dropDown">
             
-            <div className="dropDownItem"><i class="fa-solid fa-gear"></i>Setting</div>
-            <div className="dropDownItem"><i class="fa-solid fa-cloud-arrow-up"></i>Upgrade plan</div>
-            <div className="dropDownItem"><i class="fa-solid fa-right-from-bracket"></i>LogOut</div>
-            <div className="dropDownItem"><i class="fa-solid fa-user-gear"></i>Personalize</div>
+            <div className="dropDownItem"><i className="fa-solid fa-gear"></i>Setting</div>
+            <div className="dropDownItem"><i className="fa-solid fa-cloud-arrow-up"></i>Upgrade plan</div>
+            <div className="dropDownItem"><i className="fa-solid fa-right-from-bracket"></i>LogOut</div>
+            <div className="dropDownItem"><i className="fa-solid fa-user-gear"></i>Personalize</div>
           </div>
         }
       </div>
