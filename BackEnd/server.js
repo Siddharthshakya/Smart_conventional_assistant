@@ -12,11 +12,27 @@ app.use(cors());
 
 app.use("/chat", chatRoutes);
 
+
+// MongoDb Connection
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("Connected to Database successfully!");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+  }
+};
+
+connectDB();
+
+
+
 // const MODEL_NAME = "gemini-2.5-flash"; 
 // const BASE_GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
 
 
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   connectDB();
 });
@@ -29,7 +45,9 @@ const connectDB = async () => {
   } catch (err) {
     console.error("MongoDB connection error:", err);
   }
-}
+}*/
+
+
 
 // const getApiUrl = () => {
 //   const apiKey = process.env.GOOGLE_API_KEY;
@@ -93,6 +111,8 @@ const connectDB = async () => {
 //     });
 //   }
 // });
+
+export default app;
 
 
 
