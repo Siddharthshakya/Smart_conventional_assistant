@@ -2,7 +2,7 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import{ MyContext } from "./MyContext";
 import {v1 as uuidv1} from "uuid";
-import geminiIcon from "../assets/gemini-color.png";
+
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -77,7 +77,7 @@ function Sidebar() {
         <section className="sidebar">
             {/* new chat button */}
             <button onClick={createNewChat}>
-                <img src={geminiIcon} alt="Gemini logo" className="logo" />
+                <img src="/gemini-color.png" alt="Gemini logo" className="logo" />
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>
 
