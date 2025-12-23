@@ -2,13 +2,16 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import{ MyContext } from "./MyContext";
 import {v1 as uuidv1} from "uuid";
+import geminiIcon from "../assets/gemini-color.png";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function Sidebar() {
     const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats} = useContext(MyContext);
 
     const getAllThreads = async () => {
         try{
-            const response = await fetch("http://localhost:8080/chat/thread");
+            const response = await fetch(`${API_BASE_URL}/chat/thread`);
             const res = await response.json();
             const filteredData = res.map(thread => ({threadId: thread.threadId, title: thread.title}));
             console.log(filteredData);
@@ -39,7 +42,7 @@ function Sidebar() {
         setCurrThreadId(newThreadId);
 
         try{
-            const response = await fetch(`http://localhost:8080/chat/thread/${newThreadId}`);
+            const response = await fetch(`${API_BASE_URL}/chat/thread/${newThreadId}`);
             const res = await response.json();
             console.log(res);
             setPrevChats(res);
@@ -53,7 +56,9 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            const response = await fetch(`http://localhost:8080/chat/thread/${threadId}`, {method: "DELETE"});
+            await fetch(`${API_BASE_URL}/chat/thread/${threadId}`, {
+            method: "DELETE",
+          });
             const res = await response.json();
             console.log(res);
 
@@ -72,7 +77,7 @@ function Sidebar() {
         <section className="sidebar">
             {/* new chat button */}
             <button onClick={createNewChat}>
-                <img src = "src\assets\gemini-color.png" alt="Gemini logo" className="logo"></img>
+                <img src={geminiIcon} alt="Gemini logo" className="logo" />
                 <span><i className="fa-solid fa-pen-to-square"></i></span>
             </button>
 
