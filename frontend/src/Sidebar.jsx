@@ -56,7 +56,7 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            await fetch(`${API_BASE_URL}/chat/thread/${threadId}`, {
+            const response = await fetch(`${API_BASE_URL}/chat/thread/${threadId}`, {
             method: "DELETE",
           });
             const res = await response.json();
