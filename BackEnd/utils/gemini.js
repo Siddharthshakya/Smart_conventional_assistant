@@ -1,5 +1,4 @@
 import "dotenv/config";
-import fetch from "node-fetch";
 
 const MODEL_NAME = "gemini-2.5-flash"; 
 const BASE_GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/";
